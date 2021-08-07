@@ -102,11 +102,11 @@ app.layout = html.Div(children=[
                                                      # Update dropdown values using list comphrehension
                                                      options=[{'label': i, 'value': i} for i in year_list],
                                                      placeholder="Select a year",
-                                                     style=({'width':'80%', 'padding':'3px', 'font-size':'20px', 'text-align-last':'center'}
-                                                     ),
+                                                     style={'width':'80%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}),
                                             # Place them next to each other using the division style
-                                                ], style={'display': 'flex'})           # ****HERE APPARENTLY***** 
+                                            ], style={'display': 'flex'}),  
                                           ]),
+                                
                                 
                                 html.Div([ ], id='plot1'),
     
@@ -120,8 +120,9 @@ app.layout = html.Div(children=[
                                 html.Div([
                                         html.Div([ ], id='plot4'),
                                         html.Div([ ], id='plot5'),
-                                ], style={'display': 'flex'}),
+                                ], style={'display': 'flex'})
                                 ])
+             
 
 # Callback function definition
 # TASK4: Add 5 ouput components
@@ -156,7 +157,7 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
             # Enter your code below. Make sure you have correct formatting.
 
             
-            line_fig = px.line(line_data, X='Month', y='AirTime', title='% of flights by reporting airline')
+            line_fig = px.line(line_data, x='Month', y='AirTime', title='% of flights by reporting airline')
            
             
             
@@ -180,7 +181,7 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
 
             tree_fig = px.treemap(tree_data, path=['DestState', 'Reporting_Airline'], 
                       values='Flights',
-                      color=' Flights ',
+                      color='Flights',
                       color_continuous_scale='RdBu',
                       title='Flight count by airline to destination state'
                 )
